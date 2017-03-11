@@ -3,6 +3,16 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  renderMainContent() {
+    return (
+      <div className="App-content">
+        <h1>
+          {"This isn't my first rodeo"}
+        </h1>
+      </div>
+    );
+  }
+
   render() {
     return (
       <div className="App">
@@ -12,16 +22,13 @@ class App extends Component {
         </div>
         <div className="App-container">
           <div className="App-index">
-            <li>Blog</li>
-            <li>About</li>
-            <li>Personal Projects</li>
-            <li>Scotch</li>
+            <p>Blog</p>
+            <p>Career</p>
+            <p>Personal Projects</p>
+            <p>Scotch</p>
+            <p>Games</p>
           </div>
-          <div className="App-content">
-            <h1>
-              {"This isn't my first rodeo"}
-            </h1>
-          </div>
+          {this.renderMainContent()}
         </div>
       </div>
     );

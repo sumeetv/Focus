@@ -31,10 +31,9 @@
 }
 
 .App-index {
-  background-color: blue;
-  left-align: left;
-  width: 25%;
   max-width: 320px;
+  text-align: left;
+  width: 25%;
 }
 
 .App-content {
