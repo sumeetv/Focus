@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  font-family: 'Roboto', 'sans-serif';
 }
 
 .App-logo {
@@ -8,9 +8,10 @@
 }
 
 .App-header {
+  color: white;
   background-color: #222;
   padding: 20px;
-  color: white;
+  text-align: center;
 }
 
 @keyframes App-logo-spin {
@@ -37,7 +38,6 @@
 }
 
 .App-content {
-  background-color: red;
   width: 75%
 }
 
