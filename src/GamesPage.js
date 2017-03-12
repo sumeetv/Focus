@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 
 import './App.css';
 
-class DefaultPage extends Component {
+class GamesPage extends Component {
   render() {
-    console.log("rendering the default page");
     return (
       <div>
         <h1>
@@ -15,4 +14,4 @@ class DefaultPage extends Component {
   }
 }
 
-export default DefaultPage;
+export default GamesPage;
