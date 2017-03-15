@@ -19,25 +19,26 @@
   to { transform: rotate(360deg); }
 }
 
+.App-title-container {
+  margin: auto;
+  width: 50%;
+}
+
 .App-container {
   display: flex;
   flex-direction: row;
 
   min-height: 400px;
-
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 40px;
-  padding-right: 40px;
 }
 
 .App-index {
   max-width: 320px;
   text-align: left;
-  width: 25%;
+  width: 20%;
 }
 
 .App-content {
-  width: 75%
+  padding: 0px 20px;
+  width: 80%
 }
 
