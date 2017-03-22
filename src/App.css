@@ -24,21 +24,14 @@
   width: 50%;
 }
 
-.App-container {
+.App-content-container {
   display: flex;
   flex-direction: row;
 
   min-height: 400px;
 }
 
-.App-index {
-  max-width: 320px;
-  text-align: left;
-  width: 20%;
-}
-
-.App-content {
-  padding: 0px 20px;
-  width: 80%
+.Menu-icon-container {
+  float: left;
 }
 

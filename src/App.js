@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 
+import Drawer from 'material-ui/Drawer';
 import {
   List,
   ListItem
 } from 'material-ui/List';
+import MenuItem from 'material-ui/MenuItem';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {
   BrowserRouter as Router,
@@ -17,11 +19,101 @@ import logo from './logo.svg';
 
 import './App.css';
 
+const SITE_SECTIONS = {
+  ABOUT: 'ABOUT',
+  BLOG: 'BLOG',
+  PROJECTS: 'PROJECTS',
+  SCOTCH: 'SCOTCH',
+  GAMES: 'GAMES'
+};
+
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      menuOpen: false
+    };
+
+    this.openMenu = this.openMenu.bind(this);
+    this.closeMenu = this.closeMenu.bind(this);
+  }
+
+  openMenu() {
+    if (!this.state.menuOpen) {
+      this.setState({
+        menuOpen: true
+      });
+    }
+  };
+
+  closeMenu() {
+    if (this.state.menuOpen) {
+      this.setState({
+        menuOpen: false
+      });
+    }
+  }
+
+  getLinkForSection(section) {
+    switch (section) {
+      case SITE_SECTIONS.ABOUT:
+        return '/about';
+      case SITE_SECTIONS.BLOG:
+        return '/blog';
+      case SITE_SECTIONS.PROJECTS:
+        return '/projects';
+      case SITE_SECTIONS.SCOTCH:
+        return '/scotch';
+      case SITE_SECTIONS.GAMES:
+        return '/games';
+      default:
+        return '/';
+    }
+  }
+
+  getTextForSection(section) {
+    switch (section) {
+      case SITE_SECTIONS.ABOUT:
+        return 'About';
+      case SITE_SECTIONS.BLOG:
+        return 'Blog';
+      case SITE_SECTIONS.PROJECTS:
+        return 'Projects';
+      case SITE_SECTIONS.SCOTCH:
+        return 'Scotch';
+      case SITE_SECTIONS.GAMES:
+        return 'Games';
+      default:
+        return '';
+    }
+  }
+
+  renderMenu() {
+    var menuItems = [];
+    for (let section in SITE_SECTIONS) {
+      menuItems.push(
+        <MenuItem
+          containerElement={<Link to={(this.getTextForSection(section))} />}
+          primaryText={this.getTextForSection(section)} />
+      );
+    }
+    return (
+      <Drawer open={this.state.menuOpen}>
+        {menuItems}
+      </Drawer>
+    );
+  };
+
   renderHeader() {
     return (
       <div className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <span>
+          <div className="Menu-icon-container" onClick={this.openMenu}>
+            <i className="material-icons">menu</i>
+          </div>
+          <img src={logo} className="App-logo" alt="logo" />
+        </span>
         <div className="App-title-container">
           <h2 className="App-title">
             {"Sumeet is an engineering manager in San Francisco \
@@ -32,34 +124,20 @@ class App extends Component {
     );
   }
 
-  renderNav() {
-    return(
-      <List className="App-index">
-        <ListItem 
-          primaryText="About"
-          containerElement={<Link to="/about" />} />
-        <ListItem primaryText="Blog" />
-        <ListItem primaryText="Personal Projects" />
-        <ListItem primaryText="Scotch" />
-        <ListItem
-          primaryText="Games"
-          containerElement={<Link to="/games" />} />
-      </List>
-    );
-  }
-
   render() {
     return (
       <Router>
         <MuiThemeProvider>
           <div className="App">
-            {this.renderHeader()}
-            <div className="App-container">
-              {this.renderNav()}
-              <div className="App-content">
-                <Route exact path="/" component={AboutPage} />
-                <Route path="/about" component={AboutPage} />
-                <Route path="/games" component={GamesPage} />
+            {this.renderMenu()}
+            <div className="App-container" onClick={this.closeMenu}>
+              {this.renderHeader()}
+              <div className="App-content-container">
+                <div className="App-content">
+                  <Route exact path="/" component={AboutPage} />
+                  <Route path="/about" component={AboutPage} />
+                  <Route path="/games" component={GamesPage} />
+                </div>
               </div>
             </div>
           </div>
