@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 // Imported LIbraries
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
@@ -15,21 +14,18 @@ import {
 import AboutPage from './AboutPage';
 import HomePage from './HomePage';
 import GamesPage from './GamesPage';
+import {
+  GetSiteSections,
+  GetTitleForSection,
+  GetURLForSection,
+  SITE_SECTIONS
+} from './SectionHelpers';
 
 // Assets
 import logo from './logo.svg';
 
 // CSS
 import './App.css';
-
-const SITE_SECTIONS = {
-  HOME: 'HOME',
-  ABOUT: 'ABOUT',
-  BLOG: 'BLOG',
-  PROJECTS: 'PROJECTS',
-  SCOTCH: 'SCOTCH',
-  GAMES: 'GAMES'
-};
 
 class App extends Component {
 
@@ -59,53 +55,15 @@ class App extends Component {
     }
   }
 
-  getURLForSection(section) {
-    switch (section) {
-      case SITE_SECTIONS.ABOUT:
-        return '/about';
-      case SITE_SECTIONS.BLOG:
-        return '/blog';
-      case SITE_SECTIONS.GAMES:
-        return '/games';
-      case SITE_SECTIONS.PROJECTS:
-        return '/projects';
-      case SITE_SECTIONS.SCOTCH:
-        return '/scotch';
-      case SITE_SECTIONS.HOME:
-        return '/';
-      default:
-        console.warn("Fetching URL for unknown section: " + section);
-        return '/';
-    }
-  }
-
-  getTextForSection(section) {
-    switch (section) {
-      case SITE_SECTIONS.ABOUT:
-        return 'About';
-      case SITE_SECTIONS.BLOG:
-        return 'Blog';
-      case SITE_SECTIONS.PROJECTS:
-        return 'Projects';
-      case SITE_SECTIONS.SCOTCH:
-        return 'Scotch';
-      case SITE_SECTIONS.GAMES:
-        return 'Games';
-      case SITE_SECTIONS.HOME:
-        return 'Home';
-      default:
-        return '';
-    }
-  }
-
   renderMenu() {
     var menuItems = [];
-    for (let section in SITE_SECTIONS) {
+    let sections = GetSiteSections();
+    for (let i = 0; i < sections.length; i++) {
       menuItems.push(
         <MenuItem
           onClick={this.closeMenu}
-          containerElement={<Link to={(this.getURLForSection(section))} />}
-          primaryText={this.getTextForSection(section)} />
+          containerElement={<Link to={(GetURLForSection(sections[i]))} />}
+          primaryText={GetTitleForSection(sections[i])} />
       );
     }
     return (
@@ -144,9 +102,15 @@ class App extends Component {
               {this.renderHeader()}
               <div className="App-content-container">
                 <div className="App-content">
-                  <Route path="/" component={HomePage} />
-                  <Route path="/about" component={AboutPage} />
-                  <Route path="/games" component={GamesPage} />
+                  <Route
+                    exact path={GetURLForSection(SITE_SECTIONS.HOME)}
+                    component={HomePage} />
+                  <Route
+                    path={GetURLForSection(SITE_SECTIONS.ABOUT)}
+                    component={AboutPage} />
+                  <Route
+                    path={GetURLForSection(SITE_SECTIONS.GAMES)}
+                    component={GamesPage} />
                 </div>
               </div>
             </div>
