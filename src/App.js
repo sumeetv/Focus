@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+
+// Imported LIbraries
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -9,11 +11,15 @@ import {
   Link
 } from 'react-router-dom';
 
+// Local files
 import AboutPage from './AboutPage';
 import HomePage from './HomePage';
 import GamesPage from './GamesPage';
+
+// Assets
 import logo from './logo.svg';
 
+// CSS
 import './App.css';
 
 const SITE_SECTIONS = {
@@ -53,7 +59,7 @@ class App extends Component {
     }
   }
 
-  getLinkForSection(section) {
+  getURLForSection(section) {
     switch (section) {
       case SITE_SECTIONS.ABOUT:
         return '/about';
@@ -61,13 +67,14 @@ class App extends Component {
         return '/blog';
       case SITE_SECTIONS.GAMES:
         return '/games';
-      case SITE_SECTIONS.HOME:
-        return '/home';
       case SITE_SECTIONS.PROJECTS:
         return '/projects';
       case SITE_SECTIONS.SCOTCH:
         return '/scotch';
+      case SITE_SECTIONS.HOME:
+        return '/';
       default:
+        console.warn("Fetching URL for unknown section: " + section);
         return '/';
     }
   }
@@ -97,7 +104,7 @@ class App extends Component {
       menuItems.push(
         <MenuItem
           onClick={this.closeMenu}
-          containerElement={<Link to={(this.getTextForSection(section))} />}
+          containerElement={<Link to={(this.getURLForSection(section))} />}
           primaryText={this.getTextForSection(section)} />
       );
     }
@@ -137,10 +144,9 @@ class App extends Component {
               {this.renderHeader()}
               <div className="App-content-container">
                 <div className="App-content">
-                  <Route exact path="/" component={AboutPage} />
+                  <Route path="/" component={HomePage} />
                   <Route path="/about" component={AboutPage} />
                   <Route path="/games" component={GamesPage} />
-                  <Route path="/home" component={HomePage} />
                 </div>
               </div>
             </div>
