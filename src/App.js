@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 
 import Drawer from 'material-ui/Drawer';
-import {
-  List,
-  ListItem
-} from 'material-ui/List';
 import MenuItem from 'material-ui/MenuItem';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {
@@ -14,12 +10,14 @@ import {
 } from 'react-router-dom';
 
 import AboutPage from './AboutPage';
+import HomePage from './HomePage';
 import GamesPage from './GamesPage';
 import logo from './logo.svg';
 
 import './App.css';
 
 const SITE_SECTIONS = {
+  HOME: 'HOME',
   ABOUT: 'ABOUT',
   BLOG: 'BLOG',
   PROJECTS: 'PROJECTS',
@@ -61,12 +59,14 @@ class App extends Component {
         return '/about';
       case SITE_SECTIONS.BLOG:
         return '/blog';
+      case SITE_SECTIONS.GAMES:
+        return '/games';
+      case SITE_SECTIONS.HOME:
+        return '/home';
       case SITE_SECTIONS.PROJECTS:
         return '/projects';
       case SITE_SECTIONS.SCOTCH:
         return '/scotch';
-      case SITE_SECTIONS.GAMES:
-        return '/games';
       default:
         return '/';
     }
@@ -84,6 +84,8 @@ class App extends Component {
         return 'Scotch';
       case SITE_SECTIONS.GAMES:
         return 'Games';
+      case SITE_SECTIONS.HOME:
+        return 'Home';
       default:
         return '';
     }
@@ -94,6 +96,7 @@ class App extends Component {
     for (let section in SITE_SECTIONS) {
       menuItems.push(
         <MenuItem
+          onClick={this.closeMenu}
           containerElement={<Link to={(this.getTextForSection(section))} />}
           primaryText={this.getTextForSection(section)} />
       );
@@ -137,6 +140,7 @@ class App extends Component {
                   <Route exact path="/" component={AboutPage} />
                   <Route path="/about" component={AboutPage} />
                   <Route path="/games" component={GamesPage} />
+                  <Route path="/home" component={HomePage} />
                 </div>
               </div>
             </div>
