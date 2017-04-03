@@ -1,0 +1,15 @@
+.GridListContainer {
+}
+
+.SectionGridList {
+  overflowY: auto;
+}
+
+.SectionGridTile {
+  overflow: hidden;
+}
+
+.SectionTileImage {
+  width: 100%;
+}
+

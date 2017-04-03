@@ -61,6 +61,7 @@ class App extends Component {
     for (let i = 0; i < sections.length; i++) {
       menuItems.push(
         <MenuItem
+          key={sections[i]}
           onClick={this.closeMenu}
           containerElement={<Link to={(GetURLForSection(sections[i]))} />}
           primaryText={GetTitleForSection(sections[i])} />
@@ -103,7 +104,10 @@ class App extends Component {
               <div className="App-content-container">
                 <div className="App-content">
                   <Route
-                    exact path={GetURLForSection(SITE_SECTIONS.HOME)}
+                    exact path={"/"}
+                    component={HomePage} />
+                  <Route
+                    path={GetURLForSection(SITE_SECTIONS.HOME)}
                     component={HomePage} />
                   <Route
                     path={GetURLForSection(SITE_SECTIONS.ABOUT)}
