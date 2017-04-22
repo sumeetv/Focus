@@ -53,12 +53,13 @@ class HomePage extends Component {
     return (
       <div className="GridListContainer">
         <GridList
+          cols={2}
           className="SectionGridList">
           {this.tilesData.map((tile) => (
             <GridTile
               className="SectionGridTile"
               key={tile.section}
-              cols={2}
+              cols={1}
               onClick={this.tileSelect.bind(this, tile.section)}
               title={GetTitleForSection(tile.section)}>
               <img
