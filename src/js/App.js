@@ -22,10 +22,11 @@ import {
 } from './SectionHelpers';
 
 // Assets
-import logo from './logo.svg';
+import logo from '../assets/logo.svg';
 
 // CSS
-import './App.css';
+import '../css/App.css';
+import '../css/Palette.css';
 
 class App extends Component {
 
@@ -76,7 +77,7 @@ class App extends Component {
 
   renderHeader() {
     return (
-      <div className="App-header">
+      <div className="App-header dark-primary-color text-primary-color">
         <span>
           <div className="Menu-icon-container" onClick={this.openMenu}>
             <i className="material-icons">menu</i>

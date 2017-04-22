@@ -9,11 +9,11 @@ import {
   SITE_SECTIONS
 } from './SectionHelpers'
 
-import AboutImg from './assets/Uber_Logo_Cropped.jpg';
-import BlogImg from './assets/Bits.jpg';
-import ScotchImg from './assets/Bottles.jpg';
+import AboutImg from '../assets/Uber_Logo_Cropped.jpg';
+import BlogImg from '../assets/Bits.jpg';
+import ScotchImg from '../assets/Bottles.jpg';
 
-import './HomePage.css';
+import '../css/HomePage.css';
 
 class HomePage extends Component {
 
@@ -54,7 +54,8 @@ class HomePage extends Component {
       <div className="GridListContainer">
         <GridList
           cols={2}
-          className="SectionGridList">
+          className="SectionGridList"
+          padding={0}>
           {this.tilesData.map((tile) => (
             <GridTile
               className="SectionGridTile"
