@@ -1,18 +1,14 @@
-.GridListContainer {
-}
-
-.SectionGridList {
-  overflowY: auto;
-}
-
-.SectionGridTile {
+.SectionGridCol {
+  padding-left: 0px;
+  padding-right: 0px;
+  height: 200px;
   overflow: hidden;
 }
 
-.SectionTileImage {
-  width: 100%;
+.SectionGridImage {
   position: relative;
+  left: 50%;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%) translateX(-50%);
 }
 

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 
 // Imported Libraries
-import GridList from 'material-ui/GridList';
-import GridTile from 'material-ui/GridList';
+import { Col, Grid, Row } from 'react-bootstrap';
 
 import {
   GetTitleForSection,
@@ -22,24 +21,25 @@ class HomePage extends Component {
 
     this.tilesData = [
       {
-        section: SITE_SECTIONS.BLOG,
         img: BlogImg,
+        section: SITE_SECTIONS.BLOG,
       },
       {
-        section: SITE_SECTIONS.ABOUT,
+        color: "#000000",
         img: AboutImg,
+        section: SITE_SECTIONS.ABOUT,
       },
       {
+        img: ScotchImg,
         section: SITE_SECTIONS.PROJECTS,
-        img: ScotchImg,
       },
       {
+        img: ScotchImg,
         section: SITE_SECTIONS.SCOTCH,
-        img: ScotchImg,
       },
       {
-        section: SITE_SECTIONS.GAMES,
         img: ScotchImg,
+        section: SITE_SECTIONS.GAMES,
       },
     ];
   }
@@ -49,27 +49,84 @@ class HomePage extends Component {
     // Figure out how to redirect here using react-router v4
   }
 
+  renderGrid() {
+
+    let rows = [];
+    for (let i = 0; i < this.tilesData.length;) {
+      let isOddRow = rows.length % 2 === 1;
+      let sectionsLeft = this.tilesData.length - i;
+
+      let tile = this.tilesData[i];
+      let tileStyle = {
+        background: tile.color,
+      }
+
+      // Make the row full width if the row is odd or if we don't
+      // have multiple sections left
+      if (isOddRow || (sectionsLeft < 2)) {
+        rows.push(
+          <Row>
+            <Col
+              className="SectionGridCol"
+              onClick={this.tileSelect.bind(this, tile.section)}
+              style={tileStyle}
+              md={12}>
+              <img
+                className="SectionGridImage"
+                alt={GetTitleForSection(tile.section)}
+                src={tile.img} />
+            </Col>
+          </Row>
+        );
+        i++;
+        continue;
+      }
+
+      let secondTile = this.tilesData[i+1];
+      let secondTileStyle = {
+        background: secondTile.color,
+      }
+
+      rows.push(
+        <Row>
+          <Col
+            className="SectionGridCol"
+            onClick={this.tileSelect.bind(this, tile.section)}
+            style={tileStyle}
+            md={6}>
+            <img
+              className="SectionGridImage"
+              alt={GetTitleForSection(tile.section)}
+              src={tile.img} />
+          </Col>
+          <Col
+            className="SectionGridCol"
+            onClick={this.tileSelect.bind(this, secondTile.section)}
+              style={secondTileStyle}
+            md={6}>
+            <img
+              className="SectionGridImage"
+              alt={GetTitleForSection(secondTile.section)}
+              src={secondTile.img} />
+          </Col>
+        </Row>
+      );
+      i+=2;
+    }
+
+    return (
+      <div>
+        <Grid className="SectionGrid" fluid={true}>
+          {rows}
+        </Grid>
+      </div>
+    );
+  }
+
   render() {
     return (
-      <div className="GridListContainer">
-        <GridList
-          cols={2}
-          className="SectionGridList"
-          padding={0}>
-          {this.tilesData.map((tile) => (
-            <GridTile
-              className="SectionGridTile"
-              key={tile.section}
-              cols={1}
-              onClick={this.tileSelect.bind(this, tile.section)}
-              title={GetTitleForSection(tile.section)}>
-              <img
-                alt={GetTitleForSection(tile.section)}
-                className="SectionTileImage"
-                src={tile.img} />
-            </GridTile>
-          ))}
-        </GridList>
+      <div>
+        {this.renderGrid()}
       </div>
     );
   }

@@ -22,6 +22,9 @@
   width: 50%;
 }
 
+.App-content {
+  width: 100%;
+}
 .App-content-container {
   display: flex;
   flex-direction: row;
