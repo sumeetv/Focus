@@ -33,6 +33,7 @@
 }
 
 .Menu-icon-container {
+  cursor: pointer;
   float: left;
 }
 
