@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 // Imported LIbraries
 import Drawer from 'material-ui/Drawer';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 import MenuItem from 'material-ui/MenuItem';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {
@@ -38,6 +39,10 @@ class App extends Component {
 
     this.openMenu = this.openMenu.bind(this);
     this.closeMenu = this.closeMenu.bind(this);
+  }
+
+  componentDidMount() {
+    injectTapEventPlugin();
   }
 
   openMenu() {
