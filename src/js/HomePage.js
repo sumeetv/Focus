@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 // Imported Libraries
 import { Col, Grid, Row } from 'react-bootstrap';
 
 import {
+  GetURLForSection,
   GetTitleForSection,
   SITE_SECTIONS
 } from './SectionHelpers'
@@ -68,13 +70,14 @@ class HomePage extends Component {
           <Row>
             <Col
               className="SectionGridCol"
-              onClick={this.tileSelect.bind(this, tile.section)}
               style={tileStyle}
               md={12}>
-              <img
-                className="SectionGridImage"
-                alt={GetTitleForSection(tile.section)}
-                src={tile.img} />
+              <Link to={(GetURLForSection(tile.section))}>
+                <img
+                  className="SectionGridImage"
+                  alt={GetTitleForSection(tile.section)}
+                  src={tile.img} />
+              </Link>
             </Col>
           </Row>
         );
@@ -91,23 +94,25 @@ class HomePage extends Component {
         <Row>
           <Col
             className="SectionGridCol"
-            onClick={this.tileSelect.bind(this, tile.section)}
             style={tileStyle}
             md={6}>
-            <img
-              className="SectionGridImage"
-              alt={GetTitleForSection(tile.section)}
-              src={tile.img} />
+            <Link to={(GetURLForSection(tile.section))}>
+              <img
+                className="SectionGridImage"
+                alt={GetTitleForSection(tile.section)}
+                src={tile.img} />
+            </Link>
           </Col>
           <Col
             className="SectionGridCol"
-            onClick={this.tileSelect.bind(this, secondTile.section)}
               style={secondTileStyle}
             md={6}>
-            <img
-              className="SectionGridImage"
-              alt={GetTitleForSection(secondTile.section)}
-              src={secondTile.img} />
+            <Link to={(GetURLForSection(secondTile.section))}>
+              <img
+                className="SectionGridImage"
+                alt={GetTitleForSection(secondTile.section)}
+                src={secondTile.img} />
+            </Link>
           </Col>
         </Row>
       );

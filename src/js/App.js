@@ -121,6 +121,18 @@ class App extends Component {
                   <Route
                     path={GetURLForSection(SITE_SECTIONS.GAMES)}
                     component={GamesPage} />
+                  <Route
+                    path={GetURLForSection(SITE_SECTIONS.SCOTCH)}
+                    component={() => (
+                      window.location = "https://www.instagram.com/thescotchguy"
+                    )}
+                  />
+                  <Route
+                    path={GetURLForSection(SITE_SECTIONS.PROJECTS)}
+                    component={() => (
+                      window.location = "https://www.github.com/sumeetv"
+                    )}
+                  />
                 </div>
               </div>
             </div>
