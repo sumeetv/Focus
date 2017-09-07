@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 
 // Imported LIbraries
-import Drawer from 'material-ui/Drawer';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import MenuItem from 'material-ui/MenuItem';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {
   BrowserRouter as Router,
@@ -23,7 +21,7 @@ import {
 } from './SectionHelpers';
 
 // Assets
-import logo from '../assets/logo.svg';
+import cover from '../assets/cover.jpg';
 
 // CSS
 import '../css/App.css';
@@ -61,39 +59,32 @@ class App extends Component {
     }
   }
 
-  renderMenu() {
-    var menuItems = [];
+  renderHeader() {
+    var headerItems = [];
     let sections = GetSiteSections();
     for (let i = 0; i < sections.length; i++) {
-      menuItems.push(
-        <MenuItem
-          key={sections[i]}
-          onClick={this.closeMenu}
-          containerElement={<Link to={(GetURLForSection(sections[i]))} />}
-          primaryText={GetTitleForSection(sections[i])} />
+      headerItems.push(
+        <Link className="App-header-link" to={(GetURLForSection(sections[i]))}>
+          {GetTitleForSection(sections[i])}
+        </Link>
       );
     }
-    return (
-      <Drawer open={this.state.menuOpen}>
-        {menuItems}
-      </Drawer>
-    );
-  };
 
-  renderHeader() {
     return (
-      <div className="App-header dark-primary-color text-primary-color">
-        <span>
-          <div className="Menu-icon-container" onClick={this.openMenu}>
-            <i className="material-icons">menu</i>
+      <div className="App-header">
+        <div className="App-cover">
+          <div className="App-title-container">
+            <h2 className="App-title">
+              {"Sumeet is an engineering manager in San Francisco \
+                with too many interests and not enough time"}
+            </h2>
           </div>
-          <img src={logo} className="App-logo" alt="logo" />
-        </span>
-        <div className="App-title-container">
-          <h2 className="App-title">
-            {"Sumeet is an engineering manager in San Francisco \
-              with too many interests and not enough time"}
-          </h2>
+          <div className="App-cover-image">
+            <img src={cover} alt="cover" />
+          </div>
+        </div>
+        <div className="App-header-menu">
+          {headerItems}
         </div>
       </div>
     );
@@ -104,7 +95,6 @@ class App extends Component {
       <Router>
         <MuiThemeProvider>
           <div className="App">
-            {this.renderMenu()}
             <div className="App-container" onClick={this.closeMenu}>
               {this.renderHeader()}
               <div className="App-content-container">
