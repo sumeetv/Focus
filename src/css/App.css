@@ -5,9 +5,11 @@
 .App-cover {
   display: flex;
   overflow: hidden;
+  margin: auto;
+  padding: 20px;
 }
 
-.App-cover-image {
+.App-cover-container {
   justify-content: center;
   overflow: hidden;
   width: 50%;
@@ -28,22 +30,18 @@
   justify-content: space-around;
 }
 
-.App-title-container {
-  margin: auto;
-  padding: 20px;
-  width: 50%;
-}
-
 .App-title {
   color: white;
 }
 
-.App-content {
-  width: 100%;
+.App-detail-container {
+  min-height: 300px;
+  width: 50%;
+  padding: 20px;
 }
+
 .App-content-container {
   display: flex;
   flex-direction: row;
-  min-height: 300px;
 }
 

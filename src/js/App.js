@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-// Imported LIbraries
+// Imported Libraries
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {
@@ -11,6 +11,7 @@ import {
 
 // Local files
 import AboutPage from './AboutPage';
+import CoverPage from './CoverPage';
 import HomePage from './HomePage';
 import GamesPage from './GamesPage';
 import {
@@ -19,9 +20,6 @@ import {
   GetURLForSection,
   SITE_SECTIONS
 } from './SectionHelpers';
-
-// Assets
-import cover from '../assets/cover.jpg';
 
 // CSS
 import '../css/App.css';
@@ -107,14 +105,12 @@ class App extends Component {
           <div className="App">
             <div className="App-container" onClick={this.closeMenu}>
             <div className="App-header">
-              <div className="App-cover">
-                <div className="App-cover-image">
-                  <img src={cover} alt="cover" />
+              <div className="App-content-container">
+                <div className="App-cover-container">
+                  <CoverPage />
                 </div>
-                <div className="App-title-container">
-                  <div className="App-content-container">
-                    {this.renderMainContent()}
-                  </div>
+                <div className="App-detail-container">
+                  {this.renderMainContent()}
                 </div>
               </div>
               <div className="App-header-menu">
