@@ -12,8 +12,8 @@ import {
 // Local files
 import AboutPage from './AboutPage';
 import CoverPage from './CoverPage';
-import HomePage from './HomePage';
 import GamesPage from './GamesPage';
+import HomePage from './HomePage';
 import {
   GetSiteSections,
   GetTitleForSection,
@@ -105,8 +105,8 @@ class App extends Component {
           <div className="App">
             <div className="App-container" onClick={this.closeMenu}>
             <div className="App-header">
-              <div className="App-content-container">
-                <div className="App-cover-container">
+              <div className="App-cover">
+                <div className="Cover-page-container">
                   <CoverPage />
                 </div>
                 <div className="App-detail-container">

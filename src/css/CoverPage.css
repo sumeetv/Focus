@@ -1,0 +1,17 @@
+.Cover-page {
+  height: 800px;
+}
+
+.Cover-page-header {
+  height: 50%;
+  overflow: hidden;
+}
+
+.Cover-page-footer {
+  height: 50%;
+}
+
+.Cover-page-image {
+  overflow: hidden;
+}
+

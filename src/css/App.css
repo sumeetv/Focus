@@ -9,12 +9,6 @@
   padding: 20px;
 }
 
-.App-cover-container {
-  justify-content: center;
-  overflow: hidden;
-  width: 50%;
-}
-
 .App-header {
   background: black;
 }
@@ -43,5 +37,9 @@
 .App-content-container {
   display: flex;
   flex-direction: row;
+}
+
+.Cover-page-container {
+  width: 50%;
 }
 

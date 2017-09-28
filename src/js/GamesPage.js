@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import '../css/App.css';
-
 class GamesPage extends Component {
   render() {
     return (
