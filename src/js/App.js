@@ -59,7 +59,38 @@ class App extends Component {
     }
   }
 
-  renderHeader() {
+  renderMainContent() {
+    return (
+      <div className="App-content">
+        <Route
+          exact path={"/"}
+          component={HomePage} />
+        <Route
+          path={GetURLForSection(SITE_SECTIONS.HOME)}
+          component={HomePage} />
+        <Route
+          path={GetURLForSection(SITE_SECTIONS.ABOUT)}
+          component={AboutPage} />
+        <Route
+          path={GetURLForSection(SITE_SECTIONS.GAMES)}
+          component={GamesPage} />
+        <Route
+          path={GetURLForSection(SITE_SECTIONS.SCOTCH)}
+          component={() => (
+            window.location = "https://www.instagram.com/thescotchguy"
+          )}
+        />
+        <Route
+          path={GetURLForSection(SITE_SECTIONS.PROJECTS)}
+          component={() => (
+            window.location = "https://www.github.com/sumeetv"
+          )}
+        />
+      </div>
+    );
+  }
+
+  render() {
     var headerItems = [];
     let sections = GetSiteSections();
     for (let i = 0; i < sections.length; i++) {
@@ -71,60 +102,25 @@ class App extends Component {
     }
 
     return (
-      <div className="App-header">
-        <div className="App-cover">
-          <div className="App-title-container">
-            <h2 className="App-title">
-              {"Sumeet is an engineering manager in San Francisco \
-                with too many interests and not enough time"}
-            </h2>
-          </div>
-          <div className="App-cover-image">
-            <img src={cover} alt="cover" />
-          </div>
-        </div>
-        <div className="App-header-menu">
-          {headerItems}
-        </div>
-      </div>
-    );
-  }
-
-  render() {
-    return (
       <Router>
         <MuiThemeProvider>
           <div className="App">
             <div className="App-container" onClick={this.closeMenu}>
-              {this.renderHeader()}
-              <div className="App-content-container">
-                <div className="App-content">
-                  <Route
-                    exact path={"/"}
-                    component={HomePage} />
-                  <Route
-                    path={GetURLForSection(SITE_SECTIONS.HOME)}
-                    component={HomePage} />
-                  <Route
-                    path={GetURLForSection(SITE_SECTIONS.ABOUT)}
-                    component={AboutPage} />
-                  <Route
-                    path={GetURLForSection(SITE_SECTIONS.GAMES)}
-                    component={GamesPage} />
-                  <Route
-                    path={GetURLForSection(SITE_SECTIONS.SCOTCH)}
-                    component={() => (
-                      window.location = "https://www.instagram.com/thescotchguy"
-                    )}
-                  />
-                  <Route
-                    path={GetURLForSection(SITE_SECTIONS.PROJECTS)}
-                    component={() => (
-                      window.location = "https://www.github.com/sumeetv"
-                    )}
-                  />
+            <div className="App-header">
+              <div className="App-cover">
+                <div className="App-cover-image">
+                  <img src={cover} alt="cover" />
+                </div>
+                <div className="App-title-container">
+                  <div className="App-content-container">
+                    {this.renderMainContent()}
+                  </div>
                 </div>
               </div>
+              <div className="App-header-menu">
+                {headerItems}
+              </div>
+            </div>
             </div>
           </div>
         </MuiThemeProvider>

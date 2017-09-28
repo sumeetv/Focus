@@ -131,7 +131,10 @@ class HomePage extends Component {
   render() {
     return (
       <div>
-        {this.renderGrid()}
+        <h2 className="App-title">
+          {"Sumeet is an engineering manager in San Francisco \
+          with too many interests and not enough time"}
+        </h2>
       </div>
     );
   }
