@@ -11,20 +11,19 @@ class AboutPage extends Component {
         <WorkHistoryItem
           title={"Uber"}
           body={"I am currently an engineering manager on the Global \
-              Vehicle Solutions team working on driver onboarding. \
-              Our main goal is to help drivers who want to drive \
-              for Uber but don't own their own cars. This is a \
-              huge problem for many drivers in international markets \
-              and, and our team is to help these drivers find a car \
-              that makes sense for them. Previously, I had worked on \
-              the fleets team under Vehicle Solutions and India \
-              Growth before that."}
+              Vehicle Solutions team working on the marketplace that \
+              pairs drivers without cars with the best vehicle \
+              offerings in their market. This is a major issues in \
+              internationl markets and is the main source of income for \
+              many drivers across the world. Previously, I had worked \
+              on signups and onboarding for these drivers, the global \
+              Fleets team, and India Growth."}
         />
         <WorkHistoryItem
           title={"Facebook"}
-          body={"I started working at Facebook on the follow \
-            features back when Facebook, Google+, and Twitter \
-            were competing in the social media wars of 2011. \
+          body={"I started working at Facebook on the Follow \
+            back when Facebook, Google+, and Twitter were competing \
+            in the social media wars of 2011. \
             After our launch, I worked briefly on a team that \
             owned privacy, sharing, the composer, follow, and \
             lists. Highlights included launching interest lists \
