@@ -16,6 +16,10 @@ class CoverPage extends Component {
           </div>
         </div>
         <div className="Cover-page-footer">
+          <h2 className="Cover-page-blurb">
+            {"Sumeet is an engineering manager in San Francisco \
+            with too many interests and not enough time"}
+          </h2>
         </div>
       </div>
     );

@@ -109,7 +109,7 @@ class App extends Component {
                 <div className="Cover-page-container">
                   <CoverPage />
                 </div>
-                <div className="App-detail-container">
+                <div className="App-content-container">
                   {this.renderMainContent()}
                 </div>
               </div>

@@ -2,13 +2,17 @@
   height: 800px;
 }
 
-.Cover-page-header {
-  height: 50%;
-  overflow: hidden;
+.Cover-page-blurb {
+  padding: 20px;
 }
 
 .Cover-page-footer {
   height: 50%;
+}
+
+.Cover-page-header {
+  height: 50%;
+  overflow: hidden;
 }
 
 .Cover-page-image {

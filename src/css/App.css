@@ -9,14 +9,6 @@
   padding: 20px;
 }
 
-.App-header {
-  background: black;
-}
-
-.App-header-link {
-  color: white;
-}
-
 .App-header-menu {
   display: flex;
   padding-top: 10px;
@@ -37,6 +29,9 @@
 .App-content-container {
   display: flex;
   flex-direction: row;
+  min-height: 300px;
+  padding: 20px;
+  width: 50%;
 }
 
 .Cover-page-container {
