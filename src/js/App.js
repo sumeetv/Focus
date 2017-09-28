@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 // Imported Libraries
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Paper from 'material-ui/Paper';
 import {
   BrowserRouter as Router,
   Route,
@@ -59,7 +60,7 @@ class App extends Component {
 
   renderMainContent() {
     return (
-      <div className="App-content">
+      <Paper className="App-content" zDepth={2}>
         <Route
           exact path={"/"}
           component={HomePage} />
@@ -84,7 +85,7 @@ class App extends Component {
             window.location = "https://www.github.com/sumeetv"
           )}
         />
-      </div>
+      </Paper>
     );
   }
 
@@ -103,9 +104,7 @@ class App extends Component {
       <Router>
         <MuiThemeProvider>
           <div className="App">
-            <div className="App-container" onClick={this.closeMenu}>
-            <div className="App-header">
-              <div className="App-cover">
+              <div className="App-primary-container">
                 <div className="Cover-page-container">
                   <CoverPage />
                 </div>
@@ -113,11 +112,9 @@ class App extends Component {
                   {this.renderMainContent()}
                 </div>
               </div>
-              <div className="App-header-menu">
+              <div className="App-navigation-menu">
                 {headerItems}
               </div>
-            </div>
-            </div>
           </div>
         </MuiThemeProvider>
       </Router>
