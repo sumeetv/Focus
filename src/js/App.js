@@ -61,30 +61,32 @@ class App extends Component {
   renderMainContent() {
     return (
       <Paper className="App-content" zDepth={2}>
-        <Route
-          exact path={"/"}
-          component={HomePage} />
-        <Route
-          path={GetURLForSection(SITE_SECTIONS.HOME)}
-          component={HomePage} />
-        <Route
-          path={GetURLForSection(SITE_SECTIONS.ABOUT)}
-          component={AboutPage} />
-        <Route
-          path={GetURLForSection(SITE_SECTIONS.GAMES)}
-          component={GamesPage} />
-        <Route
-          path={GetURLForSection(SITE_SECTIONS.SCOTCH)}
-          component={() => (
-            window.location = "https://www.instagram.com/thescotchguy"
-          )}
-        />
-        <Route
-          path={GetURLForSection(SITE_SECTIONS.PROJECTS)}
-          component={() => (
-            window.location = "https://www.github.com/sumeetv"
-          )}
-        />
+        <div className="App-content-wrapper">
+          <Route
+            exact path={"/"}
+            component={HomePage} />
+          <Route
+            path={GetURLForSection(SITE_SECTIONS.HOME)}
+            component={HomePage} />
+          <Route
+            path={GetURLForSection(SITE_SECTIONS.ABOUT)}
+            component={AboutPage} />
+          <Route
+            path={GetURLForSection(SITE_SECTIONS.GAMES)}
+            component={GamesPage} />
+          <Route
+            path={GetURLForSection(SITE_SECTIONS.SCOTCH)}
+            component={() => (
+              window.location = "https://www.instagram.com/thescotchguy"
+            )}
+          />
+          <Route
+            path={GetURLForSection(SITE_SECTIONS.PROJECTS)}
+            component={() => (
+              window.location = "https://www.github.com/sumeetv"
+            )}
+          />
+        </div>
       </Paper>
     );
   }

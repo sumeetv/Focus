@@ -12,7 +12,7 @@ class CoverPage extends Component {
       <div className="Cover-page">
         <div className="Cover-page-header">
           <div className="Cover-page-image">
-            <img src={cover} alt="cover" />
+            <img className="Cover-image" src={cover} alt="cover" />
           </div>
         </div>
         <div className="Cover-page-footer">
