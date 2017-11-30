@@ -10,29 +10,33 @@ class AboutPage extends Component {
         <h1>Work</h1>
         <WorkHistoryItem
           title={"Uber"}
-          body={"I am currently an engineering manager on the Global \
-              Vehicle Solutions team working on the marketplace that \
-              pairs drivers without cars with the best vehicle \
-              offerings in their market. This is a major issues in \
-              internationl markets and is the main source of income for \
-              many drivers across the world. Previously, I had worked \
-              on signups and onboarding for these drivers, the global \
-              Fleets team, and India Growth."}
+          body={"I'm currently an engineering manager on the Global \
+              Vehicle Solutions team. We're trying to help people who \
+              want to make money driving for Uber but don't own their \
+              own car. This is a huge issue for thousands of people in \
+              international markets. My teams work on the common \
+              infrastructure and products that support our various \
+              business lines, like fleets, rentals, and financiers. \
+              For many of these drivers, Uber is their main source of \
+              income and helps them earn a lot more than were making \
+              before they started driving. Previously, I had worked \
+              on the Fleets team and India Growth as part of our \
+              international efforts."}
         />
         <WorkHistoryItem
           title={"Facebook"}
-          body={"I started working at Facebook on the Follow \
-            back when Facebook, Google+, and Twitter were competing \
-            in the social media wars of 2011. \
-            After our launch, I worked briefly on a team that \
-            owned privacy, sharing, the composer, follow, and \
-            lists. Highlights included launching interest lists \
-            and fixing privacy issues to prevent major dollar \
-            fines imposed by international privacy reviews. I \
-            also spent a few years working on the Groups team \
-            where I worked as a backend engineer on core \
-            functionality before launching the iOS Groups app \
-            as the primary React Native engineer."}
+          body={"I started working at Facebook back when Facebook \
+          Google, and Twitter were competing in the social media \
+          wars of 2011. I started off by working on the 'Follow' \
+          feature before joining the team that would eventually \
+          become Public Content. We worked on privacy, sharing, the \
+          composer, friend lists, interest lists, and comments. A \
+          major highlight was launching ranked comments and replies \
+          back when people didn't know how to deal with anything \
+          other than a single thread of comments. I later worked on \
+          the Groups team as a backend engineer for a while before \
+          helping launch the iOS Groups app as the primary React Native \
+          engineer on the project."}
         />
         <WorkHistoryItem
           title="Other"
